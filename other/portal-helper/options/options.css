@@ -1,0 +1,16 @@
+#optionsExample,
+#optionsData {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+#optionsData {
+  width: 600px;
+  height: 500px;
+}
+
+#optionsSave {
+  margin-top: 10px;
+  width: 150px;
+  height: 30px;
+}

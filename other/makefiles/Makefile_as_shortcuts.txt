@@ -1,0 +1,21 @@
+NAME=jenkins-local
+PORT=31080
+DATA_DIR=/path/to/jenkins_home
+
+usage_msg  = "Usage: make COMMAND"
+usage_msg += "\nCommands:"
+usage_msg += "\n    jenkins_up      Run a jenkins container"
+usage_msg += "\n    jenkins_down    Stop a running jenkins container"
+usage_msg += "\n    jenkins_logs    Fetch the logs of a jenkins container"
+
+all:
+	@echo $(usage_msg)
+
+jenkins_up:
+	docker run -itd --name $(NAME) -p $(PORT):8080 -v $(DATA_DIR):/var/jenkins_home jenkins
+
+jenkins_down:
+	docker stop $(NAME)
+
+jenkins_logs:
+	docker logs $(NAME)

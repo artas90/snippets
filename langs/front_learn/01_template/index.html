@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01 template</title>
+
+    <link rel="stylesheet" href="static/css/normalize.css"/>
+    <link rel="stylesheet" href="static/components/font-awesome/css/font-awesome.css"/>
+
+    <link rel="stylesheet" href="static/css/main.css"/>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+<body>
+
+<header class="page-section">
+    <div class="logo">
+        <img src="static/img/logo.png" alt="logo"/>
+    </div>
+
+    <nav>
+        <ul class="main-menu">
+            <li><a href="#">Label</a></li>
+            <li><a href="#">Label</a></li>
+            <li><a href="#">Label</a></li>
+            <li><a href="#" class="sign-in-link">Sign in</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-section mission-section">
+    <h3 class="title">
+        <i class="fa fa-star"></i>
+        Our Mission
+        <i class="fa fa-star"></i>
+    </h3>
+
+    <div class="text">
+        Lorem Ipsum is simply dummy text of the printing and typesettin #1
+    </div>
+</section>
+
+<section class="page-section about-section">
+    <h3 class="title">About</h3>
+
+    <div class="text">
+        Lorem Ipsum is simply dummy text of the printing and typesettin #1
+    </div>
+</section>
+
+
+
+receive.denyCurrentBranch warn
+remote: error: 'ignore' or '' in t
+
+<section class="page-section team-section">
+    <h3 class="title">Team</h3>
+
+    <ul class="member-list">
+        <li class="member-item">
+            <img src="static/img/members/member1.png" alt="member photo"/>
+
+            <div class="description">
+                John Doe<br/>
+                Founder & CEO
+            </div>
+        </li>
+
+        <li class="member-item">
+            <img src="static/img/members/member2.png" alt="member photo"/>
+
+            <div class="description">
+                John Doe<br/>
+                Co-Founder
+            </div>
+        </li>
+
+        <li class="member-item">
+            <img src="static/img/members/member3.png" alt="member photo"/>
+
+            <div class="description">
+                John Doe<br/>
+                Investor
+            </div>
+        </li>
+    </ul>
+
+    <div class="button">Action</div>
+</section>
+
+<section class="page-section map-section">
+    <div id="map-canvas"></div>
+
+    <script type="application/javascript">
+        var map;
+        function initialize() {
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: 8,
+                center: {lat: 50.4491705, lng: 30.5368104}
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <ul class="footer-menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Work with us</a></li>
+        </ul>
+
+        <ul class="social-links">
+            <li><a class="fa fa-envelope" href="#"></a></li>
+            <li><a class="fa fa-facebook" href="#"></a></li>
+            <li><a class="fa fa-twitter" href="#"></a></li>
+        </ul>
+
+        <div class="bottom-line">
+            <ul class="bottom-line-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><span>&copy; Company 2014</span></li>
+            </ul>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</footer>
+
+</body>
+</html>

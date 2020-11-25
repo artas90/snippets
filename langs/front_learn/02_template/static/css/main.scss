@@ -1,0 +1,683 @@
+@import "common";
+
+html, body, .container {
+    height: 100%;
+}
+
+body {
+    font-size: 14px;
+    font-family: "PT Sans", Verdana, sans;
+}
+
+a {
+    color: $mainColor;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Toggle Styles */
+
+$sidebarWidth: 300px;
+
+$sidebarWidth_lt_1050: 250px;
+
+$headerHeight: 56px;
+
+#wrapper {
+    padding-left: 0;
+    @include transition(all 0.5s ease);
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: $sidebarWidth;
+    width: $sidebarWidth;
+    height: 100%;
+    margin-left: -$sidebarWidth;
+    overflow-y: auto;
+    @include transition(all 0.5s ease);
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding-left: $sidebarWidth;
+    @include transition(all 0.5s ease);
+}
+
+#page-header {
+    left: $sidebarWidth;
+
+    @include transition(all 0.5s ease);
+}
+
+#wrapper.toggled {
+    padding-left: 0;
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding-left: 0;
+    }
+
+    #page-header {
+        left: 0;
+    }
+}
+
+// ------------------------------
+
+.rd-container .rd-sidebar {
+    $userImgWidth: 105px;
+    $userImgHeight: 105px;
+    $userImgBorderWidth: 5px;
+
+    background-color: rgb(50, 50, 60);
+    color: white;
+
+    .rd-sidebar-item {
+        text-align: center; // for inline elements
+        margin: 0 auto; // for block elemnts
+    }
+
+    .rd-sidebar-brand-block {
+        background-color: rgb(40, 40, 45);
+        padding-top: 10px;
+        padding-bottom: $userImgHeight / 2 + 10px;
+
+        .rd-sidebar-header {
+            padding: 20px 0;
+            font-size: 1.8em;
+        }
+    }
+
+    .rd-sidebar-user-block {
+        margin-top: -$userImgHeight / 2 - $userImgBorderWidth;
+        margin-bottom: 20px;
+
+        .rd-user-photo-wrapper {
+            width: $userImgWidth + $userImgBorderWidth*2;
+            margin-bottom: 5px;
+            position: relative;
+
+            .rd-user-photo {
+                border: $userImgBorderWidth solid white;
+                border-radius: 999px;
+                overflow: hidden;
+
+                img {
+                    width: $userImgWidth;
+                    height: $userImgHeight;
+                }
+            }
+        }
+
+        .rd-user-full-name {
+            font-size: 1.5em;
+        }
+
+        .rd-user-position {
+            color: rgb(170, 170, 170);
+            font-size: 1.1em;
+        }
+    }
+}
+
+.rd-container .rd-sidebar .rd-sidebar-user-status {
+    $statusWidth: 50px;
+    $buttonWidth: 20px;
+
+    position: absolute;
+    bottom: 5px;
+    right: -70px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+
+    .rd-current-status {
+        cursor: pointer;
+    }
+
+    .rd-button {
+        text-align: right;
+        width: $buttonWidth;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        left: -14px;
+
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 22px solid transparent;
+    }
+
+    .rd-status-text {
+        display: none;
+        width: $statusWidth;
+        text-align: left;
+    }
+
+    .rd-status-menu {
+        position: absolute;
+        left: 0;
+        list-style: none;
+        padding: 2px 10px 5px;
+        margin: 0;
+        text-align: left;
+        display: none;
+
+        border-radius: 3px;
+
+
+        .rd-status-menu-item {
+            cursor: pointer;
+            width: $statusWidth + $buttonWidth + 4px ;
+
+            &:hover {
+                color: #ddd;
+            }
+        }
+    }
+
+    &[data-status="rd-status-online"] {
+        background-color: rgb(0, 165, 80);
+
+        .rd-status-menu {
+            background-color: rgb(0, 165, 80);
+        }
+
+        &::before {
+            border-right-color: rgb(0, 165, 80);
+        }
+
+        .rd-status-text.rd-online {
+            display: inline-block;
+        }
+
+        .rd-status-menu-item.rd-online {
+            display: none;
+        }
+    }
+
+    &[data-status="rd-status-away"] {
+        background-color: rgb(160, 160, 0);
+
+        .rd-status-menu {
+            background-color: rgb(160, 160, 0);
+        }
+
+        &::before {
+            border-right-color: rgb(160, 160, 0);
+        }
+
+        .rd-status-text.rd-away {
+            display: inline-block;
+        }
+
+        .rd-status-menu-item.rd-away {
+            display: none;
+        }
+    }
+
+    &[data-status="rd-status-offline"] {
+        background-color: rgb(160, 0, 0);
+
+        .rd-status-menu {
+            background-color: rgb(160, 0, 0);
+        }
+
+        &::before {
+            border-right-color: rgb(160, 0, 0);
+        }
+
+        .rd-status-text.rd-offline {
+            display: inline-block;
+        }
+
+        .rd-status-menu-item.rd-offline {
+            display: none;
+        }
+    }
+}
+
+.rd-container .rd-sidebar .rd-sidebar-menu {
+    padding: 0;
+
+    .rd-sidebar-menu-item {
+        list-style: none;
+        padding: 15px 0;
+        width: 100%;
+        border-top: 1px solid rgb(60, 60, 65);
+
+        &:last-child {
+            border-bottom: 1px solid rgb(60, 60, 65);
+        }
+
+        a {
+            color: rgb(150, 160, 170);
+            font-size: 22px;
+            text-decoration: none;
+
+            .rd-menu-icon,
+            .rd-menu-title,
+            .rd-arrow {
+                line-height: 25px;
+            }
+
+            .rd-menu-icon {
+                width: 75px;
+                text-align: center;
+            }
+
+            .rd-menu-title {
+                font-size: 18px;
+            }
+
+            .rd-arrow {
+                float: right;
+                padding-right: 25px;
+                font-size: 14px;
+                line-height: 34px;
+            }
+        }
+
+        &:hover {
+            text-decoration: none;
+            background-color: rgb(30, 180, 170);
+            cursor: pointer;
+
+            .rd-menu-icon,
+            .rd-menu-title,
+            .rd-arrow {
+                color: white;
+            }
+        }
+    }
+}
+
+// ------------------------------
+$headerBorder: 1px solid #ccc;
+$headerBtnWidth: 66px;
+
+.rd-header {
+    $maxNameWidth: 150px;
+    $maxNameBlockWidth: $maxNameWidth + 100px + 1px;
+
+    padding: 0;
+    margin: 0;
+
+    .container-fluid,
+    .navbar-collapse,
+    .navbar-right {
+        padding: 0;
+        margin: 0;
+    }
+
+    border: none;
+    border-bottom: $headerBorder;
+    border-radius: 0;
+
+    background-color: white;
+
+    .rd-header-btn {
+        display: block;
+        width: $headerBtnWidth;
+        padding: 16px 18px;
+        color: #666;
+
+        .rd-icon {
+            position: relative;
+            font-size: 1.6em;
+        }
+
+        .rd-counter {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            padding: 0 10px;
+            border-radius: 10px;
+            color: white;
+            font-size: 13px;
+
+            &.rd-orange {
+                background-color: rgb(250, 180, 35);
+            }
+
+            &.rd-red {
+                background-color: rgb(250, 105, 80);
+            }
+
+            &.rd-green {
+                background-color: rgb(170, 215, 110);
+            }
+        }
+    }
+
+    .rd-header-btn:hover {
+        cursor: pointer;
+    }
+
+    .rd-header-search {
+        padding-left: $headerBtnWidth * 2;
+        padding-right: $headerBtnWidth * 4 + $maxNameBlockWidth;
+        height: $headerHeight;
+
+        #rd-header-search-btn {
+
+        }
+
+        input {
+            background-color: white;
+            border: none;
+            margin: 0;
+            padding: 0;
+            height: $headerHeight;
+
+            min-width: 100px;
+            width: 100%;
+
+            //min-width: 50px;
+            //width: 20px;
+        }
+    }
+
+    .rd-author-name {
+        height: 56px;
+        width: auto;
+        font-size: 18px;
+
+        max-width: $maxNameBlockWidth;
+
+        .rd-photo {
+            float: left;
+            width: 26px;
+            height: 26px;
+            margin-right: 10px;
+            border-radius: 9999px;
+        }
+
+        .rd-name {
+            float: left;
+            max-width: $maxNameWidth;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+
+        .rd-button {
+            float: left;
+            top: 5px;
+        }
+    }
+
+    .rd-dropdown-menu {
+        border: $headerBorder;
+        border-radius: 0;
+        min-width: 200px;
+        margin-top: -1px;
+
+        .rd-dropdown-menu-item {
+
+        }
+    }
+
+    #rd-menu-btn,
+    #rd-header-notifications,
+    #rd-header-messages,
+    #rd-header-tasks,
+    #rd-header-name {
+        border-right: $headerBorder;
+    }
+
+    .rd-navbar-wide-todo {
+        display: none;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+// ------------------------------
+
+// reset padding of bootstrap grid
+.rd-main-area {
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    @for $i from 1 through 12 {
+        .col-xs-#{$i},
+        .col-md-#{$i},
+        .col-lg-#{$i} {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+.rd-main-area {
+    $marginTop: 30px;
+
+    padding-top: $headerHeight;
+
+    background-color: #eee;
+
+    .rd-main-area-block {
+        background-color: white;
+        text-align: center;
+        margin: 15px;
+    }
+
+    .rd-page-description {
+        margin: 15px;
+    }
+
+    .rd-title-datetime-row {
+    }
+
+    .rd-page-description {
+        padding: 0;
+
+        .rd-page-description-title {
+            color: #444;
+            margin-top: $marginTop;
+            margin-bottom: 3px;
+            font-size: 32px;
+        }
+
+        .rd-page-description-text {
+            text-transform: uppercase;
+            color: #666;
+            font-size: 0.9em;
+        }
+    }
+
+    .rd-datetime {
+        margin-top: $marginTop;
+
+        $line2fontSize: 2em;
+        $line2lineHeight: 30px;
+
+        .rd-date,
+        .rd-pm-time {
+            padding: 5px 10px;
+        }
+
+        .rd-date {
+            background-color: $mainColor;
+            color: white;
+            text-align: left;
+
+            .rd-dow {
+
+            }
+
+            .rd-day {
+                float: left;
+                font-size: $line2fontSize;
+                line-height: $line2lineHeight;
+                margin-right: 5px;
+            }
+
+            .rd-month {
+                line-height: $line2lineHeight;
+                font-size: 1.2em;
+
+                .rd-month-text {
+                    line-height: 22px;
+                    vertical-align: bottom;
+                }
+            }
+        }
+
+        .rd-pm-time {
+            color: $mainColor;
+            text-align: right;
+
+            .rd-pm {
+            }
+
+            .rd-time {
+                font-size: $line2fontSize;
+                line-height: $line2lineHeight;
+            }
+        }
+    }
+}
+
+.rd-main-area {
+    .rd-chart {
+        padding: 15px;
+
+        .rd-chart-title {
+            color: rgb(175, 175, 175);
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+    }
+
+    .rd-chart img {
+        width: 100%;
+    }
+
+    .rd-big-chart img {
+        width: 100%;
+    }
+}
+
+.rd-main-area {
+    .rd-quote-block {
+        background-color: $mainColor;
+        color: white;
+        padding: 10px;
+
+        .rd-big-text {
+            font-size: 1.7em;
+            margin-bottom: 15px;
+        }
+
+        .rd-small-text {
+            font-size: 1.2em;
+        }
+    }
+
+    .rd-weather-block {
+        background: inherit;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.rd-main-area {
+    .rd-send-message-block {
+        button {
+            float: left;
+        }
+    }
+
+    .rd-stats-block {
+        padding: 15px;
+        text-align: left;
+
+        .rd-stats-img {
+            float: right;
+        }
+
+        .rd-stats-title {
+            color: #666;
+            margin-top: 5px;
+            font-size: 15px;
+        }
+
+        .rd-stats-counter {
+            color: #ccc;
+            font-size: 30px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+// TODO: Strange hack
+@media(min-width: 768px) {
+    .rd-navbar-narrow {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    .rd-header .rd-navbar-wide {
+        display: none;
+    }
+
+    .rd-header .rd-navbar-wide-todo {
+        display: block;
+    }
+}
+
+$maxNameBlockWidth_lt_1050: 90px;
+
+@media(max-width: 1050px) {
+    #sidebar-wrapper {
+        left: $sidebarWidth_lt_1050;
+        width: $sidebarWidth_lt_1050;
+        margin-left: -$sidebarWidth_lt_1050;
+    }
+
+    #page-content-wrapper {
+        padding-left: $sidebarWidth_lt_1050;
+    }
+
+    #page-header {
+        left: $sidebarWidth_lt_1050;
+    }
+
+    .rd-header .rd-author-name .rd-name {
+        max-width: 90px;
+    }
+}
+
+@media(max-width: 950px) {
+
+    .rd-header .rd-header-search {
+        padding-right: $headerBtnWidth * 1 + $maxNameBlockWidth_lt_1050 + 100px + 1px;
+    }
+
+    .rd-header .rd-header-counter {
+        display: none;
+    }
+
+}

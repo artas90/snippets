@@ -1,0 +1,55 @@
+- hosts: all-servers
+  vars:
+    # Default password is 'andrey', don't forget to change it.
+    # Copied from /etc/shadow.
+    user: andrey
+    password: ...
+
+  tasks:
+    - name: Install list of packages
+      become: yes
+      apt: pkg={{item}} state=installed
+      with_items:
+        - sudo
+        - mc
+        - git
+        - zsh
+
+    - name: Install oh-my-zsh
+      become: yes
+      git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/usr/share/oh-my-zsh
+
+    - name: Copy custom zsh config
+      become: yes
+      copy: src=../files/zsh-custom/ dest=/usr/share/oh-my-zsh/custom
+
+    - name: Create admins group
+      become: yes
+      group: name=admins system=yes state=present
+
+    - name: Create user andrey
+      become: yes
+      user: name={{ user }} password={{ password }} update_password=always shell=/usr/bin/zsh groups=admins append=yes
+
+    - name: Copy .zshrc to andrey's folder
+      become: yes
+      shell: cat /usr/share/oh-my-zsh/custom/_zshrc | sed -e "s/@THEME@/soliah-yellow/g" > /home/andrey/.zshrc
+
+    - name: Add andrey to sudoers.d
+      become: yes
+      lineinfile:
+        dest: /etc/sudoers.d/andrey
+        state: present
+        create: yes
+        mode: 0440
+        regexp: '^andrey ALL\='
+        line: 'andrey ALL=(ALL:ALL) ALL'
+        validate: 'visudo -cf %s'
+
+    - name: Copy .zshrc to root's folder
+      become: yes
+      shell: cat /usr/share/oh-my-zsh/custom/_zshrc | sed -e "s/@THEME@/soliah-red/g" > /root/.zshrc
+
+    - name: Set zsh as default shell for root
+      become: yes
+      user: name=root shell=/usr/bin/zsh

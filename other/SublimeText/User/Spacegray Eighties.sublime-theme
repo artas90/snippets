@@ -1,0 +1,65 @@
+[
+    // Tab set
+    {
+        "class": "tabset_control",
+        "tab_height": 32 // was 28
+    },
+    // Tab active state
+    {
+        "class": "tab_control",
+        "attributes": ["selected"],
+        // Got value from current syntax theme
+        "layer0.tint": [43, 43, 43] // was 45, 45, 45
+    },
+
+    {
+       "class": "icon_file_type",
+       // layer0.texture is filled in by code with the relevant icon name
+       "layer0.opacity": 1,  // was 0.6
+       "content_margin": [9, 9]
+    },
+    {
+       "class": "icon_file_type",
+       "parents": [{"class": "tree_row", "attributes": ["selected"]}],
+       "layer0.opacity": 0.8,
+       "content_margin": [9, 9]
+    },
+
+    // Sidebar group closed
+    {
+        "class": "disclosure_button_control",
+        "content_margin": [8, 8],
+        "layer0.texture": "User/folder_icons/folder-closed.png",
+        "layer0.opacity": 1.0,
+        "layer0.inner_margin": 0
+    },
+    {
+        "class": "disclosure_button_control",
+        "parents": [{"class": "tree_row", "attributes": ["hover"]}],
+        "layer0.texture": "User/folder_icons/folder-closed-hover.png"
+    },
+    {
+        "class": "disclosure_button_control",
+        "parents": [{"class": "tree_row", "attributes": ["selected"]}],
+        "layer0.texture": "User/folder_icons/folder-closed-selected.png"
+    },
+
+    // Sidebar group open
+    {
+        "class": "disclosure_button_control",
+        "attributes": ["expanded"],
+        "layer0.texture": "User/folder_icons/folder-open.png"
+    },
+    {
+        "class": "disclosure_button_control",
+        "attributes": ["expanded"],
+        "parents": [{"class": "tree_row", "attributes": ["hover"]}],
+        "layer0.texture": "User/folder_icons/folder-open-hover.png"
+    },
+    {
+        "class": "disclosure_button_control",
+        "attributes": ["expanded"],
+        "parents": [{"class": "tree_row", "attributes": ["selected"]}],
+        "layer0.texture": "User/folder_icons/folder-open-selected.png"
+    },
+]

@@ -1,0 +1,2 @@
+#!/bin/bash
+open -a $HOME/Applications/Meld.app --args $*

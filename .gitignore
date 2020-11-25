@@ -1,0 +1,12 @@
+
+.idea/
+
+__pycache__/
+.mypy_cache
+*.py[co]
+
+.DS_Store
+
+/ansible/.vagrant/
+/docker/rethinkdb/pkgs/
+/scripts/reports/

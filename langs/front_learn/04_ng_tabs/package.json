@@ -1,0 +1,19 @@
+{
+  "name": "04_ng_tabs",
+  "license": "MIT",
+  "description": "--",
+  "repository": "--",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "gulp-develop-server": "^0.5.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.10.0",
+    "tsd": "^0.6.5"
+  },
+  "scripts": {
+    "compile-ts": "tsc --sourcemap --module amd --experimentalDecorators --out static/lib/all.js static/src/_all.ts",
+    "tsd-install": "./node_modules/.bin/tsd install"
+  }
+}

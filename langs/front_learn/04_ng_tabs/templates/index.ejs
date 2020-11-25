@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>04 ng tabs</title>
+    <script src="/static/vendor/requirejs/require.js"></script>
+    <script src="/static/vendor/angular/angular.min.js"></script>
+    <script src="/static/vendor/angular-route/angular-route.min.js"></script>
+    
+    <script type="text/javascript">
+        require({
+            baseUrl: '/static/lib',
+            paths: {               
+                jquery: '/static/vendor/jquery/dist/jquery.min',
+                underscore: '/static/vendor/underscore/underscore-min'
+                //,angular: '/static/vendor/angular/angular.min'
+                //,angularRoute: '/static/vendor/angular-route/angular-route.min'
+            }
+        }, ['application']);
+    </script>
+    
+    <link rel="stylesheet" href="/static/lib/tabs/tabs.css">
+</head>
+<body>
+
+<%- include('tabs'); %>
+
+</body>
+</html>

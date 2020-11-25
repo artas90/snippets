@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="u">
+<head>
+    <title>03_Tabs</title>
+    <meta charset="UTF-8"> 
+
+    <link rel="stylesheet" href="/static/vendor/normalize.css">
+    <script src="/static/vendor/jquery-2.1.4.js"></script>
+
+    <script src="/static/lib/nquery.js?{{0|uuid4}}"></script>
+    <script src="/static/lib/router.js?{{0|uuid4}}"></script>
+
+    <script src="/static/services/bookService.js?{{0|uuid4}}"></script>
+
+    <link rel="stylesheet" href="/static/tabs/tabs.css?{{0|uuid4}}">
+    <script src="/static/tabs/tabs.js?{{0|uuid4}}"></script>
+
+    <script src="/static/pages/homepage.js?{{0|uuid4}}"></script>
+</head>
+
+<body onload="homepage.init()">
+
+    <ul id="main-tabs" class="c-tabs">
+        <li>
+            <input type="radio" checked="checked" name="c-tab-input" id="c-tab-1">
+            <label for="c-tab-1" data-c-tab="1" class="c-label">Pure JS Tabs</label>
+            <div id="c-tab-content-1" class="c-tab-content">
+
+                <!-- Pure js tabs -->
+                <div class="j-tabs-container">
+                    <div class="j-tabs">
+                        <div data-j-tab="1" class="j-tab current">Tab 1</div>
+                        <div data-j-tab="2" class="j-tab">Tab 2</div>
+                        <div data-j-tab="3" class="j-tab">Tab 3</div>
+                    </div>
+
+                    <div data-j-content="1" class="j-tab-content current">
+                        JTAB 1
+                    </div>
+
+                    <div data-j-content="2" class="j-tab-content">
+                        222
+                    </div>
+
+                    <div data-j-content="3" class="j-tab-content">
+                        JTAB THREE
+                    </div>
+                </div>
+                <!-- / Pure js tabs -->
+
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" name="c-tab-input" id="c-tab-2">
+            <label for="c-tab-2" data-c-tab="2" class="c-label">jQuery Tabs</label>
+            <div id="c-tab-content-2" class="c-tab-content">
+
+                <!-- jQuery tabs -->
+                <div class="q-tabs-container">
+                    <div class="q-tabs">
+                        <div data-q-tab="1" class="q-tab current">Tab 1</div>
+                        <div data-q-tab="2" class="q-tab">Tab 2</div>
+                        <div data-q-tab="3" class="q-tab">Tab 3</div>
+                    </div>
+
+                    <div data-q-content="1" class="q-tab-content current">
+                        Q 1
+                    </div>
+
+                    <div data-q-content="2" class="q-tab-content">
+                        2 Q
+                    </div>
+
+                    <div data-q-content="3" class="q-tab-content">
+                        Q THREE
+                    </div>
+                </div>
+                <!-- / jQuery tabs -->
+
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" name="c-tab-input" id="c-tab-3">
+            <label for="c-tab-3" data-c-tab="3" data-dyn-load="books" class="c-label">Dynamicaly load</label>
+            <div id="c-tab-content-3" class="c-tab-content">
+                ...
+            </div>
+        </li>
+    </ul>
+
+</body>
+
+</html>

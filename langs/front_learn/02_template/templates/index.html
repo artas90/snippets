@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>ReactiveDash Template</title>
+
+    <!-- jQuery -->
+    <script src="/static/components/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link href="/static/components/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+    <!-- TODO: Use only one fornt -->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Roboto|Open+Sans|Ubuntu|Oxygen|PT+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="/static/components/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/components/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/static/css/main.css?{{ 0|uuid4 }}"/>
+    <link rel="stylesheet" href="/static/css/widgets.css?{{ 0|uuid4 }}"/>
+    <script src="/static/js/main.js?{{ 0|uuid4 }}"></script>
+</head>
+
+<body>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+<div id="wrapper" class="rd-container">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper" class="rd-sidebar">
+        {% include "sidebar.html" %}
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        {% include "content.html" %}
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+</body>
+</html>

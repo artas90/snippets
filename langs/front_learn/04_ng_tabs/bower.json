@@ -1,0 +1,24 @@
+{
+  "name": "04_ng_tabs",
+  "description": "--",
+  "main": "",
+  "authors": [
+    "Andrey Sokolov <artas90@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "static/vendor/"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.8",
+    "requirejs": "~2.1.22",
+    "underscore": "~1.8.3"
+  }
+}

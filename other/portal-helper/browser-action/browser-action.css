@@ -1,0 +1,24 @@
+#actionTitle {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.login-creds {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cred {
+  display: flex;
+}
+
+.employer-code {
+  margin-right: 5px;
+}
+
+.username {}
+
+.login-btn {
+  margin-left: 15px;
+}

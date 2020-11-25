@@ -1,0 +1,117 @@
+
+.c-tabs {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.c-tabs li {
+    float: left;
+}
+
+.c-tabs input[type=radio] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.c-tabs label {
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.c-tabs label:hover {
+    background-color: #eee;
+}
+
+[id^=c-tab]:checked ~ label {
+    background-color: #eee;
+}
+
+.c-tab-content {
+    background-color: #eee;
+    display: none;
+    width: 100%;
+    padding: 15px;
+    position: absolute;
+    top: 39px;
+    left: 0;
+}
+
+[id^=c-tab]:checked ~ [id^=c-tab-content] {
+    display: block;
+}
+
+/* -- -- -- -- */
+
+.j-tabs-container {
+
+}
+
+.j-tabs {
+    overflow: hidden;
+}
+
+.j-tab {
+    float: left;
+    padding: 0 5px;
+    border-bottom: 2px solid #ccc;
+    cursor: pointer;
+}
+
+.j-tab.current {
+    color: green;
+    border-bottom-color: green;
+    cursor: default;
+}
+
+.j-tab:hover {
+    color: green;
+}
+
+.j-tab-content {
+    display: none;
+    padding-top: 5px;
+}
+
+.j-tab-content.current {
+    display: block;
+}
+
+/* -- -- -- -- */
+
+.q-tabs-container {
+
+}
+
+.q-tabs {
+    overflow: hidden;
+}
+
+.q-tab {
+    float: left;
+    padding: 0 5px;
+    border-bottom: 2px solid #ccc;
+    cursor: pointer;
+}
+
+.q-tab.current {
+    color: orange;
+    border-bottom-color: orange;
+    cursor: default;
+}
+
+.q-tab:hover {
+    color: orange;
+}
+
+.q-tab-content {
+    display: none;
+    padding-top: 5px;
+}
+
+.q-tab-content.current {
+    display: block;
+}

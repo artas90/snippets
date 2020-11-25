@@ -1,0 +1,186 @@
+html, body, .container {
+    height: 100%;
+}
+
+body {
+    font-size: 14px;
+}
+
+.rd-header {
+    //background: green;
+    //height: 50px;
+}
+
+.rd-container {
+    display: table;
+    width: 100%;
+
+    // if header is enabled
+    //margin-top: -50px;
+    //padding: 50px 0 0 0; /*set left/right padding according to needs*/
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin-top: 0;
+    padding: 0 0 0 0; /*set left/right padding according to needs*/
+
+    .rd-row {
+        height: 100%;
+        display: table-row;
+    }
+
+    .rd-column {
+        display: table-cell;
+        padding: 0;
+    }
+
+    .no-float {
+        float: none; /* thanks baxabbit */
+    }
+
+    //.col-md-9 {
+    //    background: yellow;
+    //}
+}
+
+.rd-container .rd-sidebar {
+
+    .rd-sidebar-item {
+        text-align: center; // for inline elements
+        margin: 0 auto; // for block elemnts
+    }
+
+    .rd-sidebar-header {
+        padding: 15px 0;
+        font-size: 1.8em;
+    }
+
+    .rd-user-photo {
+        $imgWidth: 110px;
+        $borderWidth: 3px;
+
+        width: $imgWidth + $borderWidth*2;
+        border: $borderWidth solid white;
+        border-radius: 999px;
+        overflow: hidden;
+
+        img {
+            width: $imgWidth;
+        }
+    }
+
+    .rd-user-full-name {
+        font-size: 1.5em;
+    }
+
+    .rd-user-position {
+        font-size: 1.2em;
+    }
+}
+
+.rd-container .rd-sidebar {
+    background-color: rgb(50, 50, 60);
+    color: white;
+
+    .rd-sidebar-menu {
+        padding: 0;
+
+        .rd-sidebar-menu-item {
+            list-style: none;
+            padding: 15px 0;
+            width: 100%;
+
+            a {
+                color: rgb(150, 160, 170);
+                font-size: 25px;
+
+                .rd-menu-icon,
+                .rd-menu-title,
+                .rd-arrow {
+                    line-height: 25px;
+                }
+
+                .rd-menu-icon {
+                    padding: 0 17px;
+                    width: 55px;
+                }
+
+                .rd-menu-title {
+
+                }
+
+                .rd-arrow {
+                    float: right;
+                    padding-right: 15px;
+                }
+            }
+            //a
+
+            &:hover {
+                text-decoration: none;
+                background-color: rgb(30, 180, 170);
+
+                .rd-menu-icon,
+                .rd-menu-title,
+                .rd-arrow {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+   /* CSS for fixed-fluid layout */
+
+        .rd-fixed-left {
+            width: 50px; /* the fixed width required */
+            float: left;
+            background: yellowgreen;
+        }
+
+        .rd-fixed-right {
+            width: 50px; /* the fixed width required */
+            float: right;
+            background: yellowgreen;
+        }
+
+        .rd-elastic {
+            float: left;
+            //margin-left: 100px; /* must match the fixed width in the .fixed class */
+            //margin-right: 100px; /* must match the fixed width in the .fixed class */
+            overflow: hidden;
+            background: green;
+        }
+
+        /* CSS to ensure sidebar and content are same height (optional) */
+
+
+        .fill {
+            //min-height: 100%;
+            position: relative;
+            padding: 0;
+        }
+
+        .filler:after {
+            background-color: inherit;
+            bottom: 0;
+            content: "";
+
+            height: auto;
+            min-height: 100%;
+
+            left: 0;
+            right: 0;
+                        top: 0;
+
+            margin: inherit;
+
+            position: absolute;
+
+            width: inherit;
+            z-index: -1;
+        }

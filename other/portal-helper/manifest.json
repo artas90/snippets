@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "portal-helper",
+  "version": "0.0.1",
+  "icons": {
+    "64": "auto-login.png",
+    "32": "auto-login.png"
+  },
+  "browser_action": {
+    "default_icon": "auto-login.png",
+    "default_title": "portal-helper",
+    "default_popup": "browser-action/browser-action.html"
+  },
+  "options_ui": {
+    "chrome_style": true,
+    "open_in_tab": true,
+    "page": "options/options.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "<all_urls>"
+  ]
+}

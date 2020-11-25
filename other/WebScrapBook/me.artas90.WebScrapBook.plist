@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>me.artas90.webscrapbook</string>
+
+  <key>WorkingDirectory</key>
+  <string>/path/to/WebScrapBooks</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/wsb</string>
+    <string>serve</string>
+  </array>
+
+  <key>StandardOutPath</key>
+  <string>/path/to/WebScrapBooks/logs/wsb-out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/path/to/WebScrapBooks/logs/wsb-err.log</string>
+
+  <key>KeepAlive</key>
+  <true/>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <!--
+    launchctl load ~/Library/LaunchAgents/me.artas90.WebScrapBook.plist
+  -->
+</dict>
+</plist>

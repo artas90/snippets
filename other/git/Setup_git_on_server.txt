@@ -1,0 +1,44 @@
+
+ssh andrey@git.artas90.co.vu
+
+sudo adduser --home /git git
+
+su git
+
+mkdir front.git && cd front.git
+
+git init --bare
+
+mcedit hooks/post-receive
+> #!/bin/sh
+> git --git-dir=/git/front.git --work-tree=/var/www/front checkout -f
+
+chmod +x hooks/post-receive
+
+----
+
+ssh-copy-id -i ~/.ssh/some_key.pub git@@git.artas90.co.vu
+
+OR
+
+local:  cat ~/.ssh/some_key.pub 
+
+remote:  mkdir  ~/.ssh
+remote:  mcedit ~/.ssh/authorized_keys
+
+----
+
+mcedit ~/.ssh/config
+
+Host git.artas90.co.vu
+    HostName git.artas90.co.vu
+    User git
+    IdentityFile /home/andrey/.ssh/some_key
+
+cd projects/front
+
+git init
+
+git remote add origin ssh://git.artas90.co.vu/git/front.git
+
+git push --set-upstream origin master

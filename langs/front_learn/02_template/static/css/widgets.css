@@ -1,0 +1,132 @@
+@charset "UTF-8";
+.rd-main-area-block {
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 5px #d9d9d9; }
+  .rd-main-area-block .rd-block-header {
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fafafa;
+    padding: 2px 8px; }
+    .rd-main-area-block .rd-block-header .rd-block-title {
+      float: left;
+      padding: 8px 15px;
+      color: #777;
+      font-size: 13px; }
+    .rd-main-area-block .rd-block-header .rd-block-buttons {
+      float: right; }
+      .rd-main-area-block .rd-block-header .rd-block-buttons .rd-block-button {
+        cursor: pointer;
+        padding: 8px;
+        color: #bebebe; }
+  .rd-main-area-block .rd-block-content {
+    padding: 15px; }
+    .rd-main-area-block .rd-block-content input, .rd-main-area-block .rd-block-content textarea {
+      border: 2px solid #ccc; }
+    .rd-main-area-block .rd-block-content button {
+      padding: 5px 10px;
+      background-color: #1ebea5;
+      border-color: #1ebea5;
+      color: white; }
+
+.rd-main-area-block .rd-dropzone {
+  border: 2px dotted #ccc;
+  border-radius: 3px;
+  padding: 20px 15px; }
+  .rd-main-area-block .rd-dropzone .rd-drop-image {
+    margin: 0 auto 10px;
+    position: relative;
+    width: 36px;
+    height: 48px; }
+    .rd-main-area-block .rd-dropzone .rd-drop-image .rd-drop-helper {
+      position: absolute;
+      width: 36px;
+      height: 48px;
+      background-color: #1ebea5; }
+    .rd-main-area-block .rd-dropzone .rd-drop-image img {
+      position: absolute;
+      left: 0;
+      z-index: 2; }
+
+.rd-main-area-block input[type='checkbox'] {
+  position: absolute;
+  left: -9999px; }
+.rd-main-area-block input[type='checkbox'] + label {
+  margin: 0;
+  clear: none;
+  cursor: pointer; }
+  .rd-main-area-block input[type='checkbox'] + label::before {
+    content: "✔";
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #1ebea5;
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    display: inline-block; }
+.rd-main-area-block input[type='checkbox']:checked + label::before {
+  color: #1ebea5; }
+
+.rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item {
+    text-align: left;
+    margin-bottom: 10px;
+    padding: 10px 15px 10px 10px;
+    border-radius: 5px;
+    position: relative; }
+    .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item:last-child {
+      margin-bottom: 0; }
+    .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item .rd-todo-item-actions {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      font-size: 16px;
+      line-height: 20px; }
+      .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item .rd-todo-item-actions .rd-todo-item-action {
+        padding: 3px;
+        cursor: pointer; }
+        .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item .rd-todo-item-actions .rd-todo-item-action:hover {
+          color: #2de6cd; }
+  .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item {
+    background-color: #f0f0f0; }
+    .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item [type='checkbox'] + label::before {
+      color: #f0f0f0; }
+    .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item [type='checkbox']:checked + label {
+      text-decoration: line-through; }
+    .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item [type='checkbox']:checked + label::before {
+      color: white;
+      background-color: #1ebea5; }
+    .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item:hover, .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item.active {
+      background-color: #1ebea5; }
+      .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item:hover label, .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item.active label {
+        color: white; }
+      .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item:hover [type='checkbox'] + label::before, .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item.active [type='checkbox'] + label::before {
+        border-color: white;
+        color: #1ebea5; }
+      .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item:hover [type='checkbox']:checked + label::before, .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item.active [type='checkbox']:checked + label::before {
+        border-color: white;
+        color: white; }
+      .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item:hover .rd-todo-item-actions, .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-item.active .rd-todo-item-actions {
+        color: white; }
+.rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-add-item {
+  position: relative;
+  padding-right: 40px;
+  height: 30px; }
+  .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-add-item button {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    padding: 0 0 5px;
+    font-size: 30px;
+    line-height: 0; }
+  .rd-todo-list-block .rd-block-content .rd-todo-form .rd-todo-list .rd-todo-add-item input {
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+    background-color: white; }
+
+/*# sourceMappingURL=widgets.css.map */

@@ -1,0 +1,31 @@
+
+# NOT YET FINISHED!
+
+$ docker run -it --name pgtmp ubuntu
+
+$ cat > /etc/apt/sources.list.d/postgresql.list
+$ deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main 9.5
+
+$ apt-get update
+$ apt-get install mc postgresql-9.5
+
+$ cd /usr/share/postgresql/9.5/
+
+$ cp postgresql.conf.sample postgresql.conf
+$ mcedit postgresql.conf
+listen_addresses = '*'
+
+$ cp pg_hba.conf pg_hba.conf.sample
+$ mcedit pg_hba.conf
+local    all    all    md5
+
+$ mkdir -p /var/pgsql/data
+$ chown postgres:postgres /var/pgsql/data
+$ chmod 0700 /var/pgsql/data
+$ su - postgres -c '/usr/lib/postgresql/9.5/bin/initdb -D /var/pgsql/data'
+$ exit
+ 
+$ docker commit pgtmp postgresql:9.5
+$ docket rm pgtmp
+
+$ docker run -d --name postgresql -p 5432:5432 -p 5433:5433 postgresql::9.5 sudo -u postgres /usr/lib/postgresql/9.5/bin/postgres --config-file=/usr/share/postgresql/9.5/postgresql.conf -D /var/pgsql/data

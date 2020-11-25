@@ -1,0 +1,110 @@
+html, body, .container {
+  height: 100%; }
+
+body {
+  font-size: 14px; }
+
+.rd-container {
+  display: table;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 0;
+  padding: 0 0 0 0;
+  /*set left/right padding according to needs*/ }
+  .rd-container .rd-row {
+    height: 100%;
+    display: table-row; }
+  .rd-container .rd-column {
+    display: table-cell;
+    padding: 0; }
+  .rd-container .no-float {
+    float: none;
+    /* thanks baxabbit */ }
+
+.rd-container .rd-sidebar .rd-sidebar-item {
+  text-align: center;
+  margin: 0 auto; }
+.rd-container .rd-sidebar .rd-sidebar-header {
+  padding: 15px 0;
+  font-size: 1.8em; }
+.rd-container .rd-sidebar .rd-user-photo {
+  width: 116px;
+  border: 3px solid white;
+  border-radius: 999px;
+  overflow: hidden; }
+  .rd-container .rd-sidebar .rd-user-photo img {
+    width: 110px; }
+.rd-container .rd-sidebar .rd-user-full-name {
+  font-size: 1.5em; }
+.rd-container .rd-sidebar .rd-user-position {
+  font-size: 1.2em; }
+
+.rd-container .rd-sidebar {
+  background-color: #32323c;
+  color: white; }
+  .rd-container .rd-sidebar .rd-sidebar-menu {
+    padding: 0; }
+    .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item {
+      list-style: none;
+      padding: 15px 0;
+      width: 100%; }
+      .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item a {
+        color: #96a0aa;
+        font-size: 25px; }
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item a .rd-menu-icon,
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item a .rd-menu-title,
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item a .rd-arrow {
+          line-height: 25px; }
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item a .rd-menu-icon {
+          padding: 0 17px;
+          width: 55px; }
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item a .rd-arrow {
+          float: right;
+          padding-right: 15px; }
+      .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item:hover {
+        text-decoration: none;
+        background-color: #1eb4aa; }
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item:hover .rd-menu-icon,
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item:hover .rd-menu-title,
+        .rd-container .rd-sidebar .rd-sidebar-menu .rd-sidebar-menu-item:hover .rd-arrow {
+          color: white; }
+
+/* CSS for fixed-fluid layout */
+.rd-fixed-left {
+  width: 50px;
+  /* the fixed width required */
+  float: left;
+  background: yellowgreen; }
+
+.rd-fixed-right {
+  width: 50px;
+  /* the fixed width required */
+  float: right;
+  background: yellowgreen; }
+
+.rd-elastic {
+  float: left;
+  overflow: hidden;
+  background: green; }
+
+/* CSS to ensure sidebar and content are same height (optional) */
+.fill {
+  position: relative;
+  padding: 0; }
+
+.filler:after {
+  background-color: inherit;
+  bottom: 0;
+  content: "";
+  height: auto;
+  min-height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: inherit;
+  position: absolute;
+  width: inherit;
+  z-index: -1; }
+
+/*# sourceMappingURL=main.css.map */

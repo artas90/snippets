@@ -1,0 +1,218 @@
+@import "common";
+
+.rd-main-area-block {
+    $borderColor: rgb(230, 230, 230);
+
+    border: 1px solid $borderColor;
+    box-shadow: 0 0 5px darken($borderColor, 5%);
+
+    .rd-block-header {
+        $headerPadding: 8px;
+
+        border-bottom: 1px solid $borderColor;
+        background-color: rgb(250, 250, 250);
+        padding: 2px 8px;
+
+        .rd-block-title {
+            float: left;
+            padding: $headerPadding 15px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        .rd-block-buttons {
+            float: right;
+
+            .rd-block-button {
+                cursor: pointer;
+                padding: $headerPadding;
+                color: rgb(190, 190, 190);
+            }
+        }
+    }
+
+    .rd-block-content {
+        padding: 15px;
+
+        input, textarea {
+            border: 2px solid #ccc;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: $mainColor;
+            border-color: $mainColor;
+            color: white;
+        }
+    }
+}
+
+.rd-main-area-block .rd-dropzone {
+    border: 2px dotted #ccc;
+    border-radius: 3px;
+    padding: 20px 15px;
+
+    $imgWidth: 36px;
+    $imgHeight: 48px;
+
+    .rd-drop-image {
+        margin: 0 auto 10px;
+        position: relative;
+        width: $imgWidth;
+        height: $imgHeight;
+
+        .rd-drop-helper {
+            position: absolute;
+            width: $imgWidth;
+            height: $imgHeight;
+            background-color: $mainColor;
+        }
+
+        img {
+            position: absolute;
+            left: 0;
+            z-index: 2;
+        }
+    }
+}
+
+.rd-main-area-block input {
+    &[type='checkbox'] {
+        position: absolute;
+        left: -9999px;
+    }
+
+    &[type='checkbox'] + label {
+        margin: 0;
+        clear: none;
+        cursor: pointer;
+
+        &::before {
+            content: "✔";
+            color: white;
+            font-size: 16px;
+            text-align: center;
+
+            border: 2px solid $mainColor;
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+    }
+
+    &[type='checkbox']:checked + label {
+        &::before {
+            color: $mainColor;
+        }
+    }
+}
+
+.rd-todo-list-block .rd-block-content {
+    .rd-todo-form {
+        .rd-todo-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .rd-todo-item {
+                text-align: left;
+                margin-bottom: 10px;
+                padding: 10px 15px 10px 10px;
+                border-radius: 5px;
+
+                position: relative;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .rd-todo-item-actions {;
+                    position: absolute;
+                    top: 12px;
+                    right: 10px;
+
+                    font-size: 16px;
+                    line-height: 20px;
+
+                    .rd-todo-item-action {
+                        padding: 3px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: rgb(45, 230, 205);
+                        }
+                    }
+                }
+            }
+
+            .rd-todo-item {
+                $bgColor: rgb(240, 240, 240);
+                background-color: $bgColor;
+
+                [type='checkbox'] + label::before {
+                    color: $bgColor;
+                }
+
+                [type='checkbox']:checked + label {
+                    text-decoration: line-through;
+                }
+
+                [type='checkbox']:checked + label::before {
+                    color: white;
+                    background-color: $mainColor;
+                }
+
+                &:hover,
+                &.active {
+                    background-color: $mainColor;
+
+                    label {
+                        color: white;
+                    }
+
+                    [type='checkbox'] + label::before {
+                        border-color: white;
+                        color: $mainColor;
+                    }
+
+                    [type='checkbox']:checked + label::before {
+                        border-color: white;
+                        color: white;
+                    }
+
+                    .rd-todo-item-actions {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .rd-todo-list .rd-todo-add-item {
+            $buttonWidth: 30px;
+            $buttonHeight: 30px;
+
+            position: relative;
+            padding-right: $buttonWidth + 10px;
+            height: $buttonHeight;
+
+            button {
+                position: absolute;
+                right: 0;
+                width: $buttonWidth;
+                height: $buttonHeight;
+                padding: 0 0 5px;
+                font-size: 30px;
+                line-height: 0;
+            }
+
+            input {
+                border-radius: 5px;
+                width: 100%;
+                height: $buttonHeight;
+                background-color: white;
+            }
+        }
+    }
+}

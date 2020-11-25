@@ -1,0 +1,151 @@
+.page-section {
+  clear: both; }
+
+.clear {
+  clear: both; }
+
+header {
+  height: 50px;
+  padding: 15px; }
+
+header .logo {
+  float: left; }
+  header .logo img {
+    height: 50px; }
+
+header nav {
+  float: right; }
+  header nav .main-menu li {
+    float: left;
+    list-style: none;
+    margin-left: 30px; }
+    header nav .main-menu li a {
+      color: #828791;
+      text-decoration: none; }
+      header nav .main-menu li a:hover {
+        text-decoration: underline; }
+    header nav .main-menu li a.sign-in-link {
+      background-color: #0fbedc;
+      color: white;
+      padding: 10px;
+      border-radius: 25px/30px; }
+
+.page-section {
+  text-align: center; }
+  .page-section .title {
+    font-size: 30px; }
+
+.mission-section {
+  padding-top: 350px;
+  height: 250px;
+  background: url(../img/mission.jpg) repeat red;
+  color: white; }
+  .mission-section .title i {
+    font-size: 0.6em; }
+
+.about-section {
+  padding: 15px 0 50px; }
+  .about-section .title {
+    color: #0fbedc; }
+
+.team-section {
+  padding: 15px 0 40px;
+  background-color: #0fbedc;
+  color: white; }
+  .team-section .member-list {
+    height: 250px;
+    text-align: center; }
+    .team-section .member-list .member-item {
+      list-style: none;
+      display: inline-block;
+      margin-right: 80px; }
+      .team-section .member-list .member-item:last-child {
+        margin-left: 0; }
+  .team-section .button {
+    display: inline-block;
+    background-color: white;
+    width: 100px;
+    padding: 5px;
+    border-radius: 25px;
+    color: #0fbedc; }
+
+.map-section {
+  margin-bottom: -4px; }
+  .map-section #map-canvas {
+    display: inline-block;
+    width: 100%;
+    height: 400px; }
+
+footer {
+  background-color: #464b4b;
+  text-align: center; }
+  footer .footer-content {
+    width: 70%;
+    display: inline-block; }
+    footer .footer-content .footer-menu,
+    footer .footer-content .social-links,
+    footer .footer-content .bottom-line-links {
+      list-style: none; }
+      footer .footer-content .footer-menu li,
+      footer .footer-content .social-links li,
+      footer .footer-content .bottom-line-links li {
+        float: left; }
+      footer .footer-content .footer-menu a, footer .footer-content .footer-menu span,
+      footer .footer-content .social-links a,
+      footer .footer-content .social-links span,
+      footer .footer-content .bottom-line-links a,
+      footer .footer-content .bottom-line-links span {
+        color: white; }
+      footer .footer-content .footer-menu a,
+      footer .footer-content .social-links a,
+      footer .footer-content .bottom-line-links a {
+        text-decoration: none; }
+        footer .footer-content .footer-menu a:hover,
+        footer .footer-content .social-links a:hover,
+        footer .footer-content .bottom-line-links a:hover {
+          text-decoration: underline; }
+    footer .footer-content .footer-menu,
+    footer .footer-content .social-links {
+      margin: 15px 0;
+      padding-left: 0; }
+      footer .footer-content .footer-menu li,
+      footer .footer-content .social-links li {
+        margin-right: 20px; }
+        footer .footer-content .footer-menu li:last-child,
+        footer .footer-content .social-links li:last-child {
+          margin-right: 0; }
+    footer .footer-content .footer-menu {
+      float: left;
+      line-height: 36px;
+      font-size: 13px;
+      text-transform: uppercase; }
+    footer .footer-content .social-links {
+      float: right; }
+      footer .footer-content .social-links a {
+        border: 1px solid white;
+        padding: 9px;
+        border-radius: 999px;
+        width: 20px;
+        text-align: center; }
+        footer .footer-content .social-links a:hover {
+          text-decoration: none; }
+    footer .footer-content .bottom-line {
+      clear: both;
+      border-top: 1px solid #737878; }
+      footer .footer-content .bottom-line .bottom-line-links {
+        float: right;
+        font-size: 12px;
+        line-height: 12px;
+        margin: 8px 0; }
+        footer .footer-content .bottom-line .bottom-line-links li {
+          margin-right: 10px; }
+          footer .footer-content .bottom-line .bottom-line-links li:last-child {
+            margin-right: 0; }
+        footer .footer-content .bottom-line .bottom-line-links li a,
+        footer .footer-content .bottom-line .bottom-line-links li span {
+          color: #737878; }
+        footer .footer-content .bottom-line .bottom-line-links li a {
+          border-right: 2px solid #737878;
+          padding-right: 10px; }
+
+/*# sourceMappingURL=main.css.map */

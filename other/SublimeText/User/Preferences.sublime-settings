@@ -1,0 +1,26 @@
+{
+    // ..
+
+    "theme": "Spacegray Eighties.sublime-theme",
+    "color_scheme": "Packages/Darkula Color Scheme/darkula.tmTheme",
+    "enable_tab_scrolling": false,
+
+    "font_face": "Ubuntu Mono",              "font_size": 13,
+    // "font_face": "SourceCodePro Medium",  "font_size": 11,
+    // "font_face": "Droid Sans Mono",       "font_size": 11,
+    // "font_face": "Monospace",
+    // "font_face": "Liberation Mono",
+    // "font_face": "Hack",
+    "font_options": "subpixel_antialias",
+
+    "highlight_line": true,
+    "rulers": [120],
+
+    "translate_tabs_to_spaces": true,
+    "tab_size": 4,
+    "trim_trailing_white_space_on_save": true,
+
+    // "tab_completion": false,
+    // "bold_folder_labels": true,
+    // "word_wrap": true
+}

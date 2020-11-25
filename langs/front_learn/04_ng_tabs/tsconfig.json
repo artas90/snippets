@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es3",
+        "noImplicitAny": false,
+        "outDir": "static/lib",
+        "rootDir": "static/src"
+    },
+    "filesGlob": [
+        "./static/src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

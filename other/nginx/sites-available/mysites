@@ -1,0 +1,32 @@
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    root /var/www/main-site;
+    index index.html index.htm;
+
+    server_name site.com;
+
+    location / {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
+    listen 80;
+    #listen [::]:80 ipv6only=on;
+
+    root /var/www/git-info;
+    index index.html index.htm;
+
+    server_name git.site.com;
+
+    location / {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+    }
+}

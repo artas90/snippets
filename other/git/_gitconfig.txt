@@ -1,0 +1,22 @@
+
+[user]
+	email = user@mail.com
+	name = Some Name
+
+[push]
+	default = simple
+
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	hist = log --pretty='%C(yellow)%h%C(reset) %C(green)%ci%C(reset) %s â %C(cyan)%an%C(reset)'
+	hist-nc = log --pretty='%h - %ci - %s - %an'
+	hist-gr = log --graph --pretty=oneline --abbrev-commit
+	oldbranches = remote prune origin --dry-run
+	ag = grep --heading -H --line-number --cached --untracked
+	last-commit = ! echo `git log -1 --pretty='%H'`
+	last-files = "! f () { git log ${1-'-1'} --name-only --pretty='format:' | sort | uniq | sed -e '/^$/d' ; } ; f"
+	visualize-last-commit = meld HEAD^
+	vlc = visualize-last-commit

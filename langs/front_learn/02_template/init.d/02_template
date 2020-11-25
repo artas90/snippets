@@ -1,0 +1,42 @@
+#!/bin/sh
+
+#
+# Put this file to '/etc/init.d/02_template'and edit
+#
+
+DAEMON="/usr/bin/python /home/USER/projects/front_learn/02_template/run_site.py"
+
+startd() {
+  echo "Starting 02_template"
+  start-stop-daemon -Sbvx $DAEMON
+}
+
+stopd() {
+  echo "Stopping 02_template"
+  start-stop-daemon -Kvx $DAEMON
+}
+
+status() {
+  pid=$(pgrep -f "$DAEMON")
+  if [ -z "$pid" ]; then
+    echo "02_template: not running"
+  else
+    echo "02_template: running (pid $pid)"
+  fi
+}
+
+case "$1" in
+  start) startd
+    ;;
+  stop) stopd
+    ;;
+  restart|reload|force-reload) stopd && startd
+    ;;
+  status) status
+    ;;
+  *) echo "Usage: /etc/init.d/02_template {start|stop|reload|force-reload|restart|status}"
+     exit 1
+   ;;
+esac
+
+exit 0

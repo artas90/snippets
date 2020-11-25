@@ -1,0 +1,9 @@
+- hosts: test-servers
+  tasks:
+    - name: Get unix name
+      shell: uname -a
+      tags: test
+      register: uname
+
+    - name: Print unix name
+      debug: msg="{{ uname.stdout }}"

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Got from https://habr.com/ru/post/590021/
+
 set -Eeuo pipefail
 trap cleanup SIGINT SIGTERM ERR EXIT
 

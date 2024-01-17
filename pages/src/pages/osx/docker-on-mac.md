@@ -23,7 +23,9 @@ docker context use podman
 sudo podman-mac-helper install
 
 podman machine ssh
-sudo rpm-ostree install tmux htop mc git zsh
+sudo rpm-ostree install tmux htop mc git zsh qemu-user-static-aarch64
+
+podman run --rm --arch aarch64 -it alpine
 ```
 
 ### Rancher Desktop
@@ -35,11 +37,14 @@ rancherbin="/Applications/Rancher Desktop.app/Contents/Resources/resources/darwi
 
 rm /usr/local/bin/docker
 ln -sfv "$rancherbin/nerdctl" /usr/local/bin/docker
+# OR
+ln -sfv "$rancherbin/docker" /usr/local/bin/docker
 
 rm /usr/local/bin/kubectl
 ln -sfv '$rancherbin/kuberlr' /usr/local/bin/kubectl
 
-limabin="/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin" && \
+limabin="/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/lima/bin"
+
 ls "$limabin" | xargs -IQQQQ ln -sfv "$limabin/QQQQ" "/usr/local/bin/QQQQ"
 ```
 

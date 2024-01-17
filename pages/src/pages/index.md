@@ -6,6 +6,6 @@ layout: ../layouts/Layout.astro
 # order: 0
 ---
 
-### Here are the most used snippets from
+### There are the most used snippets from
 
 <a href="https://github.com/artas90/snippets">github.com/artas90/snippets</a>

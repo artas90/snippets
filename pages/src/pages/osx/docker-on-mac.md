@@ -26,6 +26,8 @@ podman machine ssh
 sudo rpm-ostree install tmux htop mc git zsh qemu-user-static-aarch64
 
 podman run --rm --arch aarch64 -it alpine
+
+podman machine os apply quay.io/podman/machine-os:5.2
 ```
 
 ### Rancher Desktop

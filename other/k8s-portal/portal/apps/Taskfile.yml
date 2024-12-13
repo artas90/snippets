@@ -1,0 +1,32 @@
+version: '3'
+
+includes:
+  pyapi:
+    taskfile: ./pyapi/Taskfile.yml
+    dir: ./pyapi
+  ngui:
+    taskfile: ./ngui/Taskfile.yml
+    dir: ./ngui
+
+tasks:
+  werf-converge:
+    desc: werf converge
+    cmds:
+      - werf converge --repo localhost:5000/pyapi
+
+  # install/uninstall
+  install:
+    desc: install apps from registry
+    cmds:
+      - task: "pyapi:bp"
+      - task: "ngui:bp"
+      - helm install k8s-portal .helm
+  uninstall:
+    desc: uninstall apps
+    cmds:
+      - helm uninstall k8s-portal
+  reinstall:
+    desc: reinstall apps
+    cmds:
+      - task: uninstall
+      - task: install

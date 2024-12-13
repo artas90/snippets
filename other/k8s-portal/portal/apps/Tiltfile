@@ -1,0 +1,13 @@
+allow_k8s_contexts('k3d-k3s-default')
+
+default_registry(
+  'localhost:5000',
+  host_from_cluster='docker-registry.local-env:5000'
+)
+
+# Build: tell Tilt what images to build from which directories
+docker_build('docker-registry.local-env:5000/app__pyapi', 'pyapi')
+docker_build('docker-registry.local-env:5000/app__ngui', 'ngui')
+
+# Deploy: tell Tilt what YAML to deploy
+k8s_yaml(helm('.helm'))

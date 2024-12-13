@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.pyapi.name }}
+  labels: 
+    app: {{ .Values.pyapi.name }}
+spec:
+  replicas: {{ .Values.pyapi.replicaCount }} 
+  selector:
+    matchLabels:
+      app: {{ .Values.pyapi.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.pyapi.name }}
+    spec:
+      # imagePullSecrets:
+      #   - name: {{ .Values.pyapi.image.imagePullSecrets }}
+      containers:
+        - name: {{ .Values.pyapi.name }} 
+          image: "{{ .Values.pyapi.image.repository }}:{{ .Values.pyapi.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.pyapi.service.port }}
+          env:
+            - name: MARIADB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: portal-mariadb-my
+                  key: user
+            - name: MARIADB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: portal-mariadb-my
+                  key: pass
+            - name: MARIADB_DB
+              valueFrom:
+                secretKeyRef:
+                  name: portal-mariadb-my
+                  key: db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.pyapi.name }}
+  labels:
+    app: {{ .Values.pyapi.name }}
+spec:
+  type: {{ .Values.pyapi.service.type }}
+  ports:
+    - port: {{ .Values.pyapi.service.port }}
+      targetPort: {{ .Values.pyapi.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Values.pyapi.name }}

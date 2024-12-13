@@ -1,0 +1,4 @@
+mirrors:
+  "docker-registry.local-env:5000":
+    endpoint:
+      - "http://docker-registry.local-env:5000"

@@ -1,0 +1,22 @@
+version: '3'
+
+# output: 'prefixed'
+# color: true
+
+includes:
+  cluster:
+    taskfile: ./pre/cluster/Taskfile.yml
+    dir: ./pre/cluster
+  mariadb:
+    taskfile: ./pre/mariadb/Taskfile.yml
+    dir: ./pre/mariadb
+
+tasks:
+  tui:
+    desc: run k9s text ui
+    cmds:
+      - k9s
+  webui:
+    desc: run vmware octant web ui
+    cmds:
+      - octant --disable-open-browser

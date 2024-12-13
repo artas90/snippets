@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@deno/deployctl": "jsr:@deno/deployctl@^1.12.0"
+  },
+  "tasks": {
+    "dev": "PORT=8801 deno run --allow-net --allow-env ./src/main.deno-deploy.ts",
+    "deploy": "deployctl deploy"
+  },
+  "deploy": {
+    "project": "ftua",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "src/main.deno-deploy.ts"
+  }
+}

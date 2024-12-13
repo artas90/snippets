@@ -1,0 +1,71 @@
+# single pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nuxt3-pod
+spec:
+  containers:
+  - name: nuxt3-cont
+    image: artas/nuxt3:v0.2
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nuxt3-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: nuxt3
+  
+  # pod template
+  template:
+    # apiVersion: v1
+    # kind: Pod
+    metadata:
+      labels:
+        pod: nuxt3
+    spec:
+      containers:
+        - name: nuxt3-cont
+          image: artas/nuxt3:v0.2
+
+# deployment -> replicaset + pod -> container
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nuxt3-svc
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    pod: nuxt3
+
+# service -> pod
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main
+spec:
+  rules:
+    - host: "localhost"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nuxt3-svc
+                port:
+                  number: 80
+
+# ingress -> service

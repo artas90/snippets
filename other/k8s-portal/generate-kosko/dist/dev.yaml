@@ -1,0 +1,52 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nuxt3-depl
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: nuxt3
+  template:
+    metadata:
+      labels:
+        pod: nuxt3
+    spec:
+      containers:
+        - name: nuxt3-cont
+          image: artas/nuxt3:v0.2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nuxt3-svc
+  namespace: dev
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    pod: nuxt3
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nuxt3-ingr
+  namespace: dev
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nuxt3-svc
+                port:
+                  number: 80

@@ -1,0 +1,22 @@
+{
+  "name": "preact-bundle",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "standalone": "microbundle src/standalone.mjs -o dist/standalone.js -f es,umd --no-sourcemap --target web",
+    "mini": "microbundle src/mini.mjs -o dist/mini.js -f es,umd --no-sourcemap --target web",
+    "bundle": "microbundle src/bundle.mjs -o dist/bundle.js -f es,umd --no-sourcemap --target web --alias react=preact/compat",
+    "all": "node build.js"
+  },
+  "devDependencies": {
+    "htm": "^3.0.4",
+    "linkstate": "^1.1.1",
+    "microbundle": "^0.12.3",
+    "mitt": "^2.1.0",
+    "mobx-react": "^6.3.0",
+    "preact": "^10.4.7",
+    "preact-custom-element": "^3.0.0",
+    "rxjs": "^6.6.2",
+    "wouter-preact": "^2.5.1"
+  }
+}

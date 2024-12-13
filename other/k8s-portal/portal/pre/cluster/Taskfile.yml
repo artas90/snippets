@@ -1,0 +1,50 @@
+version: '3'
+
+tasks:
+  create:
+    desc: create cluster
+    cmds:
+      - cmd: echo '* manual - update hosts *' && echo 'echo "127.0.0.1  docker-registry.local-env" >> /etc/hosts' && echo
+        silent: true
+      - ping -c 1 docker-registry.local-env
+      - mkdir -p $HOME/.k3d && cp k3s-registries.yaml $HOME/.k3d
+      - k3d cluster create --agents 0 --api-port 0.0.0.0:6550 --port "8080:80@loadbalancer" --volume "$HOME/.k3d/k3s-registries.yaml:/etc/rancher/k3s/registries.yaml"
+      - docker volume create docker-registry.local-env
+      - docker container run --name docker-registry.local-env --net=k3d-k3s-default --detach --restart always --volume docker-registry.local-env:/var/lib/registry --publish 5000:5000 registry:2
+      - sleep 3 && curl -I http://docker-registry.local-env:5000/v2/
+      - docker network inspect k3d-k3s-default | grep -B 1 -A 4 docker-registry.local-env
+  delete:
+    desc: delete cluster
+    cmds:
+      - docker container stop docker-registry.local-env
+      - docker container rm docker-registry.local-env
+      - docker volume rm docker-registry.local-env
+      - k3d cluster delete
+  recreate:
+    desc: recreate cluster
+    cmds:
+      - task: delete
+      - task: create
+
+  gitlab-set-registry:
+    # desc: generate and apply registry credentials
+    cmds:
+      - python3 generate.py
+      - kubectl apply -f ./var/03__registrycredentials.yml
+
+  # traefik-enable-dashboard:
+  #   # desc: traefik-enable-dashboard
+  #   cmds:
+  #     - echo '[api]\n  dashboard = true'
+  #     - kubectl -n kube-system edit cm traefik
+  # traefik-port-forward-main:
+  #   cmds:
+  #     - kubectl -n kube-system port-forward deploy/traefik 9080:80 --address 0.0.0.0
+  # traefik-port-forward-dashboard:
+  #   cmds:
+  #     - kubectl -n kube-system port-forward deploy/traefik 45880:8080 --address 0.0.0.0
+  # trpf:
+  #   # desc: port-forward deploy/traefik
+  #   cmds:
+  #     - cmd: task -p traefik-port-forward-main traefik-port-forward-dashboard
+  #       silent: true

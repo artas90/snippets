@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  # build/push
+  build:
+    desc: build image
+    cmds:
+      - docker build -t localhost:5000/app__pyapi .
+  push:
+    desc: push image
+    cmds:
+      - docker push localhost:5000/app__pyapi
+      - curl http://localhost:5000/v2/app__pyapi/tags/list
+
+  bp:
+    desc: build and push image
+    cmds:
+      - task: build
+      - task: push
+
+  venv:
+    desc: venv
+    cmds:
+      - python3 -m venv .venv
+      - .venv/bin/pip3 install wheel
+      - .venv/bin/pip3 install -r app/requirements.txt
+
+  # port-porward
+  pf:
+    desc: deployment port porward
+    cmds:
+      - kubectl port-forward deployment/portal-pyapi 8081:80 --address 0.0.0.0

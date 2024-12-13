@@ -1,0 +1,12 @@
+{
+  "name": "ftua",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev --port 8802",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.60.3"
+  }
+}

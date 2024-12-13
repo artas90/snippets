@@ -1,0 +1,10 @@
+configVersion: 1
+project: k8s-portal
+---
+image: pyapi
+dockerfile: pyapi/Dockerfile
+context: pyapi
+---
+image: ngui
+dockerfile: ngui/Dockerfile
+context: ngui

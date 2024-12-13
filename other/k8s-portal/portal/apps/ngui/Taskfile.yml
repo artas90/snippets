@@ -1,0 +1,24 @@
+version: '3'
+
+tasks:
+  # build/push
+  build:
+    desc: build image
+    cmds:
+      - docker build -t localhost:5000/app__ngui .
+  push:
+    desc: push image
+    cmds:
+      - docker push localhost:5000/app__ngui
+      - curl http://localhost:5000/v2/app__ngui/tags/list
+  bp:
+    desc: build and push image
+    cmds:
+      - task: build
+      - task: push
+
+  # port-porward
+  pf:
+    desc: deployment port porward
+    cmds:
+      - kubectl port-forward deployment/portal-ngui 8082:80 --address 0.0.0.0

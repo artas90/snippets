@@ -1,0 +1,13 @@
+{
+  "name": "kubernetes",
+  "scripts": {
+    "dev": "kosko generate --cwd=src --env=dev > dist/dev.yaml",
+    "prod": "kosko generate --cwd=src --env=prod > dist/prod.yaml",
+    "all": "npm run dev && npm run prod"
+  },
+  "dependencies": {
+    "@kosko/env": "^3.0.1",
+    "kosko": "^2.1.1",
+    "ts-node": "^10.8.1"
+  }
+}

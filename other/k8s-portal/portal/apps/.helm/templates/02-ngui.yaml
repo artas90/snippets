@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.ngui.name }}
+  labels: 
+    app: {{ .Values.ngui.name }}
+spec:
+  replicas: {{ .Values.ngui.replicaCount }} 
+  selector:
+    matchLabels:
+      app: {{ .Values.ngui.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.ngui.name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }} 
+          image: "{{ .Values.ngui.image.repository }}:{{ .Values.ngui.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.ngui.service.port }}
+          env:
+            - name: K8SP_TEST
+              value: test-value
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.ngui.name }}
+  labels:
+    app: {{ .Values.ngui.name }}
+spec:
+  type: {{ .Values.ngui.service.type }}
+  ports:
+    - port: {{ .Values.ngui.service.port }}
+      targetPort: {{ .Values.ngui.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Values.ngui.name }}

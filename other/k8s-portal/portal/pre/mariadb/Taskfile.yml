@@ -1,0 +1,31 @@
+version: '3'
+
+tasks:
+  install:
+    desc: install mariadb
+    cmds:
+      - python3 generate.py
+      - helm repo add bitnami https://charts.bitnami.com/bitnami
+      - helm install portal-mariadb bitnami/mariadb -f ./var/02__values.yml
+      - kubectl apply -f ./var/03__secret.yml
+
+  uninstall:
+    desc: uninstall mariadb
+    cmds:
+      - helm uninstall portal-mariadb
+
+  pf:
+    desc: port-forward mariadb
+    cmds:
+      - kubectl port-forward deployment/portal-mariadb 3306:3306 --address 0.0.0.0
+
+  client:
+    desc: mariadb client
+    vars:
+      RUN: run portal-mariadb-client --rm --tty -i --restart='Never' --image  bitnami/mariadb --command
+      HOST: portal-mariadb.default.svc.cluster.local
+      PASS:
+        sh: kubectl get secret --namespace default portal-mariadb -o jsonpath='{.data.mariadb-root-password}' | base64 --decode
+    cmds:
+      - cat ./var/04__db.sql
+      - kubectl {{.RUN}} -- mysql -h {{.HOST}} -uroot -p{{.PASS}}

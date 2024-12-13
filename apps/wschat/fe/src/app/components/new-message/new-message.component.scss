@@ -1,0 +1,9 @@
+.wsc-new-message {
+    display: flex;
+    padding: 20px;
+    &__input {
+        margin-right: 20px;
+        flex-grow: 1;
+        height: 30px;
+    }
+}

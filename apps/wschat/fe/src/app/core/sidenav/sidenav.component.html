@@ -1,0 +1,27 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over">
+    <div class="sidenav-header">
+      <h2>wschat</h2>
+    </div>
+    <div class="sidenav-content">
+      <ul>
+        <li>
+          <a mat-button routerLink="/params">
+            params
+          </a>
+        </li>
+        <li>
+          <a mat-button routerLink="/chat">
+            chat
+          </a>
+        </li>
+        <li>
+          <a mat-button routerLink="/about">
+            about
+          </a>
+        </li>
+      </ul>
+    </div>
+  </mat-sidenav>
+  <ng-content></ng-content>
+</mat-sidenav-container>

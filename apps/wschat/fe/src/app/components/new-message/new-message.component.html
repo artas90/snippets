@@ -1,0 +1,5 @@
+<div class="wsc-new-message">
+    <input type="text" [formControl]="message" class="wsc-new-message__input" />
+
+    <input type="button" (click)="submit()" value="Send" [disabled]="message.invalid"/>
+</div>

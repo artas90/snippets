@@ -1,0 +1,8 @@
+<h1>username</h1>
+
+<div class="wsc-params-page">
+    <input type="text" [formControl]="nickname" class="wsc-params-page__input" />
+
+    <input type="button" (click)="submit()" value="Change" 
+      [disabled]="nickname.invalid" class="wsc-params-page__btn" />
+</div>

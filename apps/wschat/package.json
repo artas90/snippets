@@ -1,0 +1,13 @@
+{
+    "name": "wschat",
+    "version": "0.0.0",
+    "scripts": {
+        "start-be": "cd be && npm start",
+        "start-fe": "cd fe && npm start",
+        "start": "concurrently -n w: npm:start-*"
+    },
+    "private": true,
+    "devDependencies": {
+        "concurrently": "^5.3.0"
+    }
+}

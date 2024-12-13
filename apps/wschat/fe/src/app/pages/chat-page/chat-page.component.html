@@ -1,0 +1,10 @@
+<h1>chat</h1>
+
+<div>
+  <wsc-user-message *ngFor="let msg of list$ | async; index as i" [message]="msg" [isOdd]="i % 2">
+  </wsc-user-message>
+</div>
+
+<wsc-new-message #newMsg></wsc-new-message>
+
+<button mat-button *ngFor="let nn of nicknames$ | async" (click)="mention(newMsg, nn)">{{ nn }}</button>
